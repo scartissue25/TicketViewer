@@ -1,3 +1,13 @@
+<!-- 
+    Name: Spencer Daniels
+    Date/Last Modified: Nov 19, 2023
+    CIT Class: JavaScript 140
+
+  A HTML doc written by Professor Prather and modifed to filter and only show the violators 
+  who did 25 MPH or over.
+-->
+
+
 <!DOCTYPE html>
 <html><head><title>Speeding Tickets - 25 Over</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -55,15 +65,11 @@
             },
             methods: {
                 async getData() {
-                    const response = await fetch('tickets1.json')
+                    const response = await fetch('tickets1.json') 
                     const data = await response.json()
-                    this.tickets = data.filter(ticket => ticket.actual_speed - ticket.posted_speed >= 25);     
+                    //where the code varies slightly adding in that filter property to only display violators of 25 mph or over 
+                    this.tickets = data.filter(ticket => ticket.actual_speed - ticket.posted_speed >= 25);                       
                 },
-            },
-            computed: {
-                filteredTickets() {
-                    return this.tickets;
-                }
             }
         })
       
